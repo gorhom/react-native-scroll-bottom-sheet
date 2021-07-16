@@ -106,7 +106,7 @@ const BottomSheetComponent = forwardRef<BottomSheet, BottomSheetProps>(
       enablePanDownToClose = DEFAULT_ENABLE_PAN_DOWN_TO_CLOSE,
       overDragResistanceFactor = DEFAULT_OVER_DRAG_RESISTANCE_FACTOR,
       style: _providedStyle,
-      panGestureHandlerListenersHook = useInteractivePanGestureHandlerListeners,
+      usePanGestureHandlerListeners = useInteractivePanGestureHandlerListeners,
 
       // keyboard
       keyboardBehavior = DEFAULT_KEYBOARD_BEHAVIOR,
@@ -947,7 +947,7 @@ const BottomSheetComponent = forwardRef<BottomSheet, BottomSheetProps>(
     //#endregion
 
     const { handleGestureStart, handleGestureActive, handleGestureEnd } =
-      panGestureHandlerListenersHook({
+      usePanGestureHandlerListeners({
         animatedPosition,
         animatedKeyboardState,
         scrollableContentOffsetY,

@@ -10,6 +10,10 @@ import type {
   KEYBOARD_BLUR_BEHAVIOR,
   KEYBOARD_INPUT_MODE,
 } from '../../constants';
+import {
+  PanGestureHandlerListeners,
+  UseInteractivePanGestureHandlerListenersParams,
+} from './useInteractivePanGestureHandlerListeners';
 
 export interface BottomSheetProps
   extends BottomSheetAnimationConfigs,
@@ -228,6 +232,15 @@ export interface BottomSheetProps
    * @type React.FC\<BottomSheetBackgroundProps\>
    */
   backgroundComponent?: React.FC<BottomSheetBackgroundProps> | null;
+
+  /**
+   * enables custom gesture event handlers for advanced use cases
+   * @see useInteractivePanGestureHandlerListeners.ts for reference implementation
+   * warning: this is an experimental feature and the hook signature can change without a major version bump
+   */
+  usePanGestureHandlerListeners?: (
+    params: UseInteractivePanGestureHandlerListenersParams
+  ) => PanGestureHandlerListeners;
   /**
    * A scrollable node or normal view.
    * @type React.ReactNode[] | React.ReactNode
